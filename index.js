@@ -7,6 +7,13 @@
  * Повертає: Масив користувачів.
  */
 function getUsersFromDatabase(array) {
+  
+  return Array.from(array, user => ({
+    id: user.id,
+    firstName: user.name.toUpperCase(),
+    years:user.age,
+  }));
+  
   // Використовуємо метод `Array.from` для створення масиву користувачів зі списку, елементи якого це об'єкти які міститять
   // id який дорівнює id користувача,firstName який дорівнює firstName користувача в верхньому регістрі та years який дорівнює age користувача
   // Повертаємо масив користувачів
@@ -37,6 +44,12 @@ console.log(getUsersFromDatabase(userRecords));
  * Повертає Видалений останній елемент або `undefined`, якщо масив порожній.
  */
 function removeLastElement(arr) {
+  if(arr.length===0){
+    return undefined
+  };
+  arr.pop()
+  return arr
+  
   // Перевіряємо, чи масив не є порожнім, якщо порожній повертаємо  undefined
   // Використовуємо метод `pop` для видалення останнього елементу з масиву
   // Повертаємо оновлений масив
